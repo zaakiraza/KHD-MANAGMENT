@@ -1,0 +1,66 @@
+.sideMenu {
+    background-color: #5add5a;
+    width: 25%;
+    height: 100vh;
+}
+
+.TopLogo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.TopLogo h1 {
+    font-size: 16px;
+    color: white;
+    text-align: center;
+}
+
+.barItems {
+    line-height: 3;
+    margin-top: 31px;
+}
+
+li {
+    list-style-type: none;
+    font-size: 20px;
+    color: white;
+    cursor: pointer;
+    padding-left: 28px;
+}
+
+li:hover,
+.active {
+    background-color: white;
+    color: #5add5a;
+    font-weight: 700;
+}
+
+/* Student Panel */
+
+.student-panel {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    flex-wrap: wrap;
+    background: #f4f4f4;
+    border-radius: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    min-width: 180px;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+select {
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
