@@ -1,33 +1,37 @@
-import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import "./dashboard.css";
 import logo from "../../assets/logo.png";
 
-export default function SideBarMenu({ onSelect, activeItem }) {
+export default function SideBarMenu() {
+  const location = useLocation();
+
   const menuItems = [
-    "Students",
-    "Attendance",
-    "New Admissions",
-    "Quizes",
-    "Assignments",
-    "Create Zoom Meeting",
-    "Result",
+    { name: "Students", path: "/dashboard/student" },
+    { name: "Attendance", path: "/dashboard/attendance" },
+    { name: "New Admissions", path: "/dashboard/new-admissions" },
+    { name: "Quizes", path: "/dashboard/quizes" },
+    { name: "Assignments", path: "/dashboard/assignments" },
+    { name: "Create Zoom Meeting", path: "/dashboard/zoom" },
+    { name: "Result", path: "/dashboard/result" },
   ];
 
   return (
     <div className="sideMenu">
       <div className="TopLogo">
-        <img src={logo} alt="" />
-        <h1>Khuddam Learning Online Classes</h1>
+        <img src={logo} alt="logo" />
       </div>
-
       <ul className="barItems">
-        {menuItems.map((item, index) => (
+        {menuItems.map((item, idx) => (
           <li
-            key={index}
-            onClick={() => onSelect(item)}
-            className={activeItem === item ? "active" : ""}
+            key={idx}
+            className={location.pathname === item.path ? "active" : ""}
           >
-            {item}
+            <Link
+              to={item.path}
+              style={{ textDecoration: "none", color: "inherit" }}
+            >
+              {item.name}
+            </Link>
           </li>
         ))}
       </ul>

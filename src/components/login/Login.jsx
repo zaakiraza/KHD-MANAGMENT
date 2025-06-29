@@ -16,14 +16,14 @@ function login() {
     let pass = "abc";
     if (name == email && pass == password) {
       setMessage("Successfully Login");
-      localStorage.setItem("loginId",email);
+      localStorage.setItem("loginId", email);
       setTimeout(() => {
-        navigate("/dashboard")
+        navigate("/dashboard/student");
       }, 1000);
     } else {
       setMessage("Email or password is incorrect!");
       setTimeout(() => {
-        setMessage("")
+        setMessage("");
       }, 2000);
     }
   };
