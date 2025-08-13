@@ -1,0 +1,121 @@
+.admission-form-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 900px;
+    margin: 30px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.admission-form-container h2 {
+    text-align: center;
+    color: #2eab2e;
+    margin-bottom: 25px;
+}
+
+.admission-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.form-group label {
+    margin-bottom: 6px;
+    font-weight: bold;
+    color: #2eab2e;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 8px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #2eab2e;
+    box-shadow: 0 0 5px rgba(46, 171, 46, 0.3);
+}
+
+.form-group .error {
+    color: red;
+    font-size: 13px;
+    margin-top: 4px;
+}
+
+.full-width { grid-column: span 2; }
+
+.section-title {
+    grid-column: span 2;
+    margin: 10px 0 5px;
+    color: #0f6f0f;
+    border-bottom: 1px solid #e6e6e6;
+    padding-bottom: 6px;
+}
+
+.image-preview {
+    margin-top: 10px;
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 6px;
+    object-fit: cover;
+    border: 1px solid #ddd;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    background-color: #2eab2e;
+    color: white;
+    padding: 10px 25px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-actions button:hover {
+    background-color: #249624;
+}
+
+.form-actions button:disabled,
+.form-actions button[disabled] {
+    background-color: #c7c7c7;
+    cursor: not-allowed;
+}
+
+.checkbox.halafnama label,
+.halafnama-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.halafnama-inline input{
+    width: 2%;
+}
+
+.agreement-box {
+    margin-top: 10px;
+    background: #fafafa;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    line-height: 1.4;
+}

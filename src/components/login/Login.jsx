@@ -1,30 +1,35 @@
+
 import React, { useState } from "react";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 import { useNavigate } from "react-router-dom";
 import "./login.css";
+import axios from "axios";
 
-function login() {
+function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const navigate = useNavigate();
+  const BASEURL = import.meta.env.VITE_BASEURL;
+  const logo = '/logo.png';
 
-  const formHandler = (e) => {
+  const formHandler = async (e) => {
     e.preventDefault();
-    setMessage("");
-    let name = "abc";
-    let pass = "abc";
-    if (name == email && pass == password) {
-      setMessage("Successfully Login");
-      localStorage.setItem("loginId", email);
-      setTimeout(() => {
+    try {
+      const api = await axios.post(`${BASEURL}/auth/admin_login`, {
+        email,
+        password
+      });
+      setMessage(api.data.message);
+      if (api.data.status) {
+        localStorage.setItem("token", api.data.data);
         navigate("/dashboard/student");
-      }, 1000);
-    } else {
-      setMessage("Email or password is incorrect!");
-      setTimeout(() => {
-        setMessage("");
-      }, 2000);
+      }
+      
+      setMessage(api.data.message);
+    } 
+    catch (error) {
+      setMessage(error.response.data.message);
     }
   };
 
@@ -38,22 +43,16 @@ function login() {
         <input
           type="email"
           placeholder="Enter Email"
-          onChange={(e) => {
-            setEmail(e.target.value);
-          }}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           type="password"
           placeholder="Enter Password"
-          onChange={(e) => {
-            setPassword(e.target.value);
-          }}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           className="btnLogin"
-          onClick={(e) => {
-            formHandler(e);
-          }}
+          onClick={formHandler}
         >
           Go
         </button>
@@ -63,4 +62,4 @@ function login() {
   );
 }
 
-export default login;
+export default Login;

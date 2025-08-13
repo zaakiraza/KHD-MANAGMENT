@@ -11,11 +11,16 @@ import Quizes from "./components/dashboard/routes/Quizes";
 import Assignments from "./components/dashboard/routes/Assignments";
 import Zoom from "./components/dashboard/routes/Zoom";
 import Result from "./components/dashboard/routes/Result";
+import NewAdmissionForm from "./components/public/AdmissionForm";
 
 function App() {
   return (
     <Routes>
+      {/* Public Routes */}
       <Route path="/" element={<Login />} />
+      <Route path="/new-admission/form" element={<NewAdmissionForm />} />
+
+      {/* Protected Routes */}
       <Route element={<AuthRoute />}>
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="student" element={<Students />} />

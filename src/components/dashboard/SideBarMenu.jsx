@@ -1,10 +1,10 @@
 import { Link, useLocation } from "react-router-dom";
 import "./dashboard.css";
-import logo from "../../assets/logo.png";
+// import logo from "../../assets/logo.png";
 
 export default function SideBarMenu() {
   const location = useLocation();
-
+  const logo = '/logo.png';
   const menuItems = [
     { name: "Students", path: "/dashboard/student" },
     { name: "Attendance", path: "/dashboard/attendance" },
