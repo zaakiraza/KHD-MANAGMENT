@@ -12,6 +12,7 @@ import Assignments from "./components/dashboard/routes/Assignments";
 import Zoom from "./components/dashboard/routes/Zoom";
 import Result from "./components/dashboard/routes/Result";
 import NewAdmissionForm from "./components/public/AdmissionForm";
+import NotFound from "./components/common/NotFound";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
           <Route path="result" element={<Result />} />
         </Route>
       </Route>
+
+      {/* Not Found Route */}
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
